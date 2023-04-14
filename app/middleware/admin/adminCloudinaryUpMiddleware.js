@@ -1,7 +1,7 @@
-const cloudinary = require("../../config/cloudinary.js");
-const getPublicId = require("../../utils/getPublicId.js");
+const cloudinary = require("../../../config/cloudinary.js");
+const getPublicId = require("../../../utils/getPublicId.js");
 
-const cloudinaryUpload = async (req, res, next) => {
+const adminCloudinaryUpload = async (req, res, next) => {
   try {
     if (req.car?.id) {
       // skipping while empty file input
@@ -25,11 +25,9 @@ const cloudinaryUpload = async (req, res, next) => {
 
     next();
   } catch (error) {
-    res.status(400).json({
-      message: "Gagal Upload file!",
-      err_msg: error.message,
-    });
+    res.cookie("errorMsg", error.message);
+    res.redirect("back");
   }
 };
 
-module.exports = cloudinaryUpload;
+module.exports = adminCloudinaryUpload;

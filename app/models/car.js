@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
       },
       name: DataTypes.STRING,
-      category: DataTypes.ENUM("small", "medium", "large"),
+      type: DataTypes.ENUM("small", "medium", "large"),
       rentPerDay: DataTypes.INTEGER,
       imgUrl: DataTypes.STRING,
     },

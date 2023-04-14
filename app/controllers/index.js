@@ -1,11 +1,20 @@
-const { initAPI } = require("./initApiController.js");
+const { initAPI } = require("./api/initApiController.js");
 const {
   getAllCar,
   getCar,
   deleteCar,
   createCar,
   updateCar,
-} = require("./carController.js");
+} = require("./api/carController.js");
+
+const {
+  renderHome,
+  renderCreate,
+  adminCreateCar,
+  adminDeleteCar,
+  renderUpdate,
+  adminUpdateCar,
+} = require("./admin/adminController.js");
 
 module.exports = {
   initAPI,
@@ -14,4 +23,10 @@ module.exports = {
   deleteCar,
   createCar,
   updateCar,
+  renderHome,
+  renderCreate,
+  adminCreateCar,
+  adminDeleteCar,
+  renderUpdate,
+  adminUpdateCar,
 };

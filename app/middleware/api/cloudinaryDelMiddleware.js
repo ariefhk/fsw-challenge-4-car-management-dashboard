@@ -1,9 +1,9 @@
-const cloudinary = require("../../config/cloudinary.js");
-const getPublicId = require("../../utils/getPublicId.js");
+const cloudinary = require("../../../config/cloudinary.js");
+const getPublicId = require("../../../utils/getPublicId.js");
 
 const cloudinaryDelete = async (req, res, next) => {
   try {
-    const public_id = getPublicId(req.book.imgUrl);
+    const public_id = getPublicId(req.car.imgUrl);
     await cloudinary.uploader.destroy(public_id);
 
     next();

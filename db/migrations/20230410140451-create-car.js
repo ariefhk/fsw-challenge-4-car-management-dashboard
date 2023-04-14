@@ -12,7 +12,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-      category: {
+      type: {
         type: Sequelize.ENUM("small", "medium", "large"),
       },
       rentPerDay: {

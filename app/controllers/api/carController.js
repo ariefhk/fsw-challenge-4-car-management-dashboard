@@ -1,6 +1,6 @@
-const { Car } = require("../models");
-const cloudinary = require("../../config/cloudinary.js");
-const getPublicId = require("../../utils/getPublicId.js");
+const { Car } = require("../../models");
+const cloudinary = require("../../../config/cloudinary.js");
+const getPublicId = require("../../../utils/getPublicId.js");
 
 //Funtion for delete img
 const deleteImg = async (imgUrl) => {
@@ -20,7 +20,7 @@ exports.createCar = async (req, res) => {
     //template  obj data
     const uploadData = {
       name: car.name,
-      category: car.category,
+      type: car.type,
       rentPerDay: Number(car.rentPerDay),
       imgUrl,
     };
@@ -94,7 +94,7 @@ exports.updateCar = async (req, res) => {
     //template  obj data
     const uploadData = {
       name: newData.name || car.name,
-      category: newData.category || car.category,
+      type: newData.type || car.type,
       rentPerDay: Number(newData.rentPerDay) || car.rentPerDay,
       imgUrl,
     };
