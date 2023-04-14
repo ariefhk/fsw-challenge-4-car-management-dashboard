@@ -5,7 +5,7 @@ let deleteNotif = document.querySelector(".notif__delete");
 let saveNotif = document.querySelector(".notif__save");
 let errorNotif = document.querySelector(".notif__error");
 let cardCar = document.querySelectorAll("#card__car");
-let btnCategory = document.querySelectorAll("#btn__category");
+let btnType = document.querySelectorAll("#btn__type");
 
 //Handling to make dissappear notification
 if (deleteNotif) {
@@ -53,17 +53,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(urlSearchParams.entries());
 
-  btnCategory.forEach((element) => {
+  btnType.forEach((element) => {
     //handling focused button filter type category
-    if (!params.category && element.value == "all") {
-      element.classList.remove("btn__category__non");
-      element.classList.add("btn__category__active");
+    if (!params.type && element.value == "all") {
+      element.classList.remove("btn__type__non");
+      element.classList.add("btn__type__active");
     }
-    if (element.value == params.category) {
-      element.classList.remove("btn__category__non");
-      element.classList.add("btn__category__active");
+    if (element.value == params.type) {
+      element.classList.remove("btn__type__non");
+      element.classList.add("btn__type__active");
     }
-    element.classList.add("btn__category__non");
+    element.classList.add("btn__type__non");
   });
 
   //if local true open sidebar

@@ -264,7 +264,7 @@ body {
 /* title & create car btn end */
 
 /* filter start */
-.btn__category__non {
+.btn__type__non {
   font-weight: 700;
   font-size: 1.6rem;
   line-height: 20px;
@@ -275,14 +275,14 @@ body {
   border-radius: 2px;
 }
 
-.btn__category__non:hover {
+.btn__type__non:hover {
   color: #0d28a6;
   background: #cfd4ed;
   border: 1px solid #0d28a6;
 }
 
 /* if category is selected */
-.btn__category__active {
+.btn__type__active {
   font-weight: 700;
   font-size: 1.6rem;
   line-height: 20px;
@@ -291,7 +291,7 @@ body {
   background: #cfd4ed;
   border: 1px solid #0d28a6;
 }
-.btn__category__active:hover {
+.btn__type__active:hover {
   color: #cfd4ed;
   background: #0d28a6;
 }

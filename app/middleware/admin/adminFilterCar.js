@@ -2,7 +2,7 @@ const { Car } = require("../../models");
 
 const adminFilterCar = async (req, res, next) => {
   try {
-    if (!req.query.category || req.query.category == "all") {
+    if (!req.query.type || req.query.type == "all") {
       if (req.query.search) {
         const car = await Car.findAll(); //params, query, body
         const filteredCar = await car.filter((car) =>
@@ -18,11 +18,11 @@ const adminFilterCar = async (req, res, next) => {
     }
 
     const car = await Car.findAll();
-    const filteredCarCategory = await car.filter(
-      (car) => car.dataValues.type == req.query.category
+    const filteredCarByType = await car.filter(
+      (car) => car.dataValues.type == req.query.type
     );
 
-    req.car = filteredCarCategory;
+    req.car = filteredCarByType;
     next();
   } catch (error) {
     res.status(500).json({
