@@ -23,11 +23,11 @@
         <fieldset class="d-flex flex-column gap-3">
           <div class="form-group">
             <label for="name">Nama <span class="form__active">*</span></label>
-            <input name="name" id="name" type="text" placeholder="Avanza" />
+            <input name="name" id="name" type="text" placeholder="Avanza" required />
           </div>
           <div class="form-group">
             <label for="rentPerDay">Sewa per Hari<span class="form__active">*</span></label>
-            <input name="rentPerDay" id="rentPerDay" type="number" placeholder="Rp 0,-" />
+            <input name="rentPerDay" id="rentPerDay" type="number" placeholder="Rp 0,-" required />
           </div>
           <div class="form-group d-flex">
             <label for="type">Ukuran*</label>
@@ -43,7 +43,7 @@
           <div class="form-group d-flex">
             <label for="foto">Foto <span class="form__active">*</span></label>
             <div class="ms-1 form-group__input">
-              <input class="form-controls" type="file" id="formFile" name="image" />
+              <input class="form-controls" type="file" id="formFile" name="image" required />
               <img src="/image/ic_upload.svg" alt="" srcset="" class="input__form__up" />
               <p class="form-group__input__warn">File size max. 2MB</p>
             </div>

@@ -25,14 +25,14 @@ const imgUploader = (req, res, next) => {
       // A Multer error occurred when uploading.
       res.status(400).json({
         message: err.message,
-        code: err.code,
+        err_msg: err.code,
       });
       return;
     } else if (err) {
       // An unknown error occurred when uploading.
       res.status(400).json({
         message: err.message,
-        code: err.code,
+        err_msg: err.code,
       });
       return;
     }

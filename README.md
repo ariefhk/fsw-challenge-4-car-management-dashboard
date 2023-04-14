@@ -36,7 +36,7 @@ DB_PASSWORD = ''
 DB_NAME = ''
 DB_HOST = ''
 DB_PORT =
-DB_DIALECT = ''
+DB_DIALECT = 'postgres'
 
 CLOUD_NAME = ''
 API_KEY = ''
@@ -62,8 +62,28 @@ npm run db:migrate
 npm run db:seed
 ```
 
-6. Running Project
+6. Running Project on development
 
 ```bash
 npm run dev
 ```
+
+## EndPoint
+
+### A. Restful API
+
+1. Initial API | GET: http://{{host}}/
+2. Get All Car | GET: http://{{host}}/api/v1/cars
+3. Upload A Car | POST: http://{{host}}/api/v1/cars
+4. Get Car by Id | GET: http://{{host}}/api/v1/cars/:id
+5. Delete A Car | DELETE: http://{{host}}/api/v1/cars/:id
+6. Update A Car | PUT: http://{{host}}/api/v1/cars/:id
+
+### B. Admin
+
+1. Render home page Admin| GET: http://{{host}}/admin/cars
+2. Render create page | GET: http://{{host}}/admin/cars/create
+3. Upload A Car | POST: http://{{host}}/admin/cars/create
+4. Delete A Car | GET: http://{{host}}/admin/cars/delete/:id
+5. Render update page | GET: http://{{host}}/admin/cars/update/:id
+6. Update A Car | POST: http://{{host}}/admin/cars/update/:id

@@ -76,7 +76,7 @@ exports.deleteCar = async (req, res) => {
     const car = req.car;
     const resData = await Car.destroy({ where: { id: car.id } });
     res.status(200).json({
-      message: `Succes Delete Car where id ${resData}`,
+      message: `Succes Delete Car!`,
     });
   } catch (error) {
     res.status(500).json({

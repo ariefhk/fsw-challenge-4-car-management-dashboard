@@ -23,11 +23,11 @@
         <fieldset class="d-flex flex-column gap-3">
           <div class="form-group">
             <label for="name">Nama <span class="form__active">*</span></label>
-            <input name="name" id="name" type="text" placeholder="Avanza" value="<%= car.name  %>" />
+            <input name="name" id="name" type="text" placeholder="Avanza" value="<%= car.name  %>" required />
           </div>
           <div class="form-group">
             <label for="rentPerDay">Sewa per Hari<span class="form__active">*</span></label>
-            <input name="rentPerDay" id="rentPerDay" type="number" placeholder="Rp 0,-" value="<%= car.rentPerDay  %>" />
+            <input name="rentPerDay" id="rentPerDay" type="number" placeholder="Rp 0,-" value="<%= car.rentPerDay  %>" required />
           </div>
           <div class="form-group d-flex">
             <label for="type">Ukuran*</label>

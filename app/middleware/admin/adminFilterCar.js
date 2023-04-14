@@ -13,7 +13,6 @@ const adminFilterCar = async (req, res, next) => {
       }
       const car = await Car.findAll();
       req.car = car;
-      console.log("Test Data: ", req.car);
       next();
     }
 

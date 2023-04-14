@@ -102,6 +102,7 @@ exports.adminCreateCar = async (req, res) => {
   try {
     const car = req.body;
     const imgUrl = req.imgUrl;
+    //template  obj data
     const uploadData = {
       name: car.name,
       type: car.type,
