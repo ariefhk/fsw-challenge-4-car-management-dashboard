@@ -72,12 +72,11 @@ npm run dev
 
 ### A. Restful API
 
-1. Initial API | GET: http://{{host}}/
-2. Get All Car | GET: http://{{host}}/api/v1/cars
-3. Upload A Car | POST: http://{{host}}/api/v1/cars
-4. Get Car by Id | GET: http://{{host}}/api/v1/cars/:id
-5. Delete A Car | DELETE: http://{{host}}/api/v1/cars/:id
-6. Update A Car | PUT: http://{{host}}/api/v1/cars/:id
+1. Get All Car | GET: http://{{host}}/api/v1/cars
+2. Upload A Car | POST: http://{{host}}/api/v1/cars
+3. Get Car by Id | GET: http://{{host}}/api/v1/cars/:id
+4. Delete A Car | DELETE: http://{{host}}/api/v1/cars/:id
+5. Update A Car | PUT: http://{{host}}/api/v1/cars/:id
 
 ### B. Admin
 
