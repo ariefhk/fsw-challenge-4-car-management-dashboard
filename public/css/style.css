@@ -34,6 +34,76 @@ body {
 }
 /* Global End */
 
+/* hamburger start */
+.btn__main__sidebar {
+  background-color: #0d28a6;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn__sidebar .checkbox {
+  position: absolute;
+  display: block;
+  height: 32px;
+  width: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.btn__sidebar .hamburger-lines {
+  display: block;
+  height: 14px;
+  width: 18px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btn__sidebar .hamburger-lines .line {
+  display: block;
+  height: 2px;
+  width: 100%;
+  border-radius: 2px;
+  background: #151515;
+}
+
+.btn__sidebar .hamburger-lines .line1 {
+  transform-origin: 0% 0%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.btn__sidebar .hamburger-lines .line2 {
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn__sidebar .hamburger-lines .line3 {
+  transform-origin: 0% 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.btn__sidebar input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+  transform: rotate(45deg);
+}
+
+.btn__sidebar input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+  transform: scaleY(0);
+}
+
+.btn__sidebar input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+  transform: rotate(-45deg);
+}
+
+/* hamburger end */
+
 /* notification start */
 .notif__delete {
   font-family: "Rubik";
@@ -54,7 +124,8 @@ body {
   background-color: #000000;
 }
 
-.notif__save {
+.notif__save,
+.notif__search {
   font-family: "Rubik";
   font-weight: 500;
   font-size: 1.6rem;
@@ -72,7 +143,8 @@ body {
   height: 48px;
   background-color: #73ca5c;
 }
-.notif__error {
+.notif__error,
+.notif__failSearch {
   font-family: "Rubik";
   font-weight: 500;
   font-size: 1.6rem;
@@ -259,7 +331,22 @@ body {
   border-radius: 2px;
   color: white;
   padding: 8px 12px;
-  gap: 10px;
+  gap: 6px;
+}
+.main__content__title--btn span {
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 20px;
+}
+.fi_plus {
+  width: 18px;
+  height: 18px;
+}
+
+.main__content__title--btn a:hover {
+  color: #0d28a6;
+  background: #cfd4ed;
+  outline: 1px solid #0d28a6;
 }
 /* title & create car btn end */
 
@@ -298,7 +385,37 @@ body {
 /*  filter end */
 
 /* list cars start */
+.card__notFound {
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+.card__notFound img {
+  width: 300px;
+}
 
+.card__notFound a {
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 20px;
+  padding: 8px 12px;
+  color: #0d28a6;
+  background: #cfd4ed;
+  border: 1px solid #0d28a6;
+  text-decoration: none;
+}
+.card__notFound a:hover {
+  color: #cfd4ed;
+  background: #0d28a6;
+}
+
+.card__notFound h1 {
+  font-size: 3rem;
+  font-weight: 500;
+}
 .card__image {
   width: 100%;
   height: 20vw;
@@ -347,17 +464,37 @@ body {
   line-height: 20px;
 }
 
-.delete,
-.delete:hover {
+.delete {
   color: #fa2c5a;
   border: 1px solid #fa2c5a;
 }
 
-.edit,
-.edit:hover {
+.edit {
   color: white;
   background-color: #5cb85f;
 }
+
+.delete .fi_trash {
+  width: 18px;
+  height: 18px;
+}
+
+.edit .fi_edit {
+  width: 18px;
+  height: 18px;
+}
+
+.delete:hover {
+  color: white;
+  background-color: #fa2c5a;
+}
+
+.edit:hover {
+  color: #5cb85f;
+  outline: 1px solid #5cb85f;
+  background-color: white;
+}
+
 /* list cars end */
 
 /* modal start */
@@ -535,7 +672,7 @@ input[type="number"] {
 
 /* .customFileInput/ */
 
-/* create car end */
+/* create car start */
 
 .form_group__btn {
   display: flex;
@@ -557,7 +694,8 @@ input[type="number"] {
 }
 
 .btn__create__cancel:hover {
-  color: #0d28a6;
+  color: #ffff;
+  background-color: #0d28a6;
 }
 .btn__create__save {
   text-decoration: none;
@@ -577,3 +715,50 @@ input[type="number"] {
   background: #0d28a6;
   border: 1px solid #0d28a6;
 }
+
+/* create car end */
+
+/* not found 404 start */
+.not__found {
+  min-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not__found__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  gap: 30px;
+}
+
+.not__found__body img {
+  width: 300px;
+}
+
+.not__found__body h1 {
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.not__found__body a {
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 20px;
+  padding: 8px 12px;
+  color: #0d28a6;
+  background: #cfd4ed;
+  border: 1px solid #0d28a6;
+  text-decoration: none;
+}
+
+.not__found__body a:hover {
+  color: #cfd4ed;
+  background: #0d28a6;
+}
+
+/* not found 404 end */

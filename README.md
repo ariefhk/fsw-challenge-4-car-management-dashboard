@@ -81,9 +81,9 @@ npm run dev
 
 ### B. Admin
 
-1. Render home page Admin| GET: http://{{host}}/admin/cars
-2. Render create page | GET: http://{{host}}/admin/cars/create
-3. Upload A Car | POST: http://{{host}}/admin/cars/create
-4. Delete A Car | GET: http://{{host}}/admin/cars/delete/:id
-5. Render update page | GET: http://{{host}}/admin/cars/update/:id
-6. Update A Car | POST: http://{{host}}/admin/cars/update/:id
+1. Render home page Admin| GET: http://{{host}}/
+2. Render create page | GET: http://{{host}}/create
+3. Upload A Car | POST: http://{{host}}/admin/create
+4. Delete A Car | GET: http://{{host}}/delete/:id
+5. Render update page | GET: http://{{host}}/update/:id
+6. Update A Car | POST: http://{{host}}/update/:id

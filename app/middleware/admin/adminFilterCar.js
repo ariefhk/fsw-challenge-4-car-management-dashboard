@@ -5,23 +5,31 @@ const adminFilterCar = async (req, res, next) => {
     if (!req.query.type || req.query.type == "all") {
       if (req.query.search) {
         const car = await Car.findAll(); //params, query, body
-        const filteredCar = await car.filter((car) =>
+        const filteredCarSearch = await car.filter((car) =>
           String(car.dataValues.name).toLowerCase().includes(req.query.search)
         );
-        req.car = filteredCar;
-        next();
+        if (filteredCarSearch.length < 1) {
+          return res.render("pages/searchNotFound", {
+            failSearchMsg: "Data Tidak Ditemukan",
+            searchMsg: null,
+            saveMsg: null,
+            deleteMsg: null,
+            errorMsg: null,
+          });
+        }
+        req.searchMsg = "Data Berhasil Ditemukan";
+        req.car = filteredCarSearch;
+        return next();
       }
       const car = await Car.findAll();
       req.car = car;
-      next();
+      return next();
     }
-
-    const car = await Car.findAll();
-    const filteredCarByType = await car.filter(
+    const car = await Car.findAll(); //find all data
+    const filteredCarType = await car.filter(
       (car) => car.dataValues.type == req.query.type
     );
-
-    req.car = filteredCarByType;
+    req.car = filteredCarType;
     next();
   } catch (error) {
     res.status(500).json({

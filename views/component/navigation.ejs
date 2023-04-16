@@ -1,9 +1,14 @@
-<nav class="d-flex align-items-center justify-content-between main__nav">
-  <div id="toggle" class="main__nav__left">
-    <img src="/image/ic_menu.svg" alt="" srcset="" />
+<nav class="d-flex align-items-center justify-content-between main__nav position-relative">
+  <div id="toggle" class="btn__sidebar">
+    <input class="checkbox" type="checkbox" name="checkbox" id="cbox" />
+    <div class="hamburger-lines">
+      <span class="line line1"></span>
+      <span class="line line2"></span>
+      <span class="line line3"></span>
+    </div>
   </div>
   <div class="d-flex align-items-center main__nav__right">
-    <form action="/admin/cars" method="get" class="d-flex">
+    <form action="/" method="get" class="d-flex">
       <div class="form__box">
         <input type="text" name="search" id="" placeholder="Search" />
         <div class="form__box__label">

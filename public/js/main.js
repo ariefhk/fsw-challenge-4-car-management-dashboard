@@ -1,27 +1,39 @@
-let toggle = document.querySelector("#toggle");
-let sideMenu = document.querySelector(".sidebar");
-let target = document.querySelector("#main");
-let deleteNotif = document.querySelector(".notif__delete");
-let saveNotif = document.querySelector(".notif__save");
-let errorNotif = document.querySelector(".notif__error");
-let cardCar = document.querySelectorAll("#card__car");
-let btnType = document.querySelectorAll("#btn__type");
+const toggle = document.querySelector("#toggle");
+const sideMenu = document.querySelector(".sidebar");
+const target = document.querySelector("#main");
+const deleteNotif = document.querySelector(".notif__delete");
+const saveNotif = document.querySelector(".notif__save");
+const errorNotif = document.querySelector(".notif__error");
+const searchNotif = document.querySelector(".notif__search");
+const failSearchNotif = document.querySelector(".notif__failSearch");
+const cardCar = document.querySelectorAll("#card__car");
+const btnType = document.querySelectorAll("#btn__type");
 
 //Handling to make dissappear notification
+if (failSearchNotif) {
+  setTimeout(() => {
+    document.querySelector(".notif__failSearch").remove();
+  }, 1500);
+}
+if (searchNotif) {
+  setTimeout(() => {
+    document.querySelector(".notif__search").remove();
+  }, 1500);
+}
 if (deleteNotif) {
   setTimeout(() => {
     document.querySelector(".notif__delete").remove();
-  }, 2500);
+  }, 1500);
 }
 if (saveNotif) {
   setTimeout(() => {
     document.querySelector(".notif__save").remove();
-  }, 2500);
+  }, 1500);
 }
 if (errorNotif) {
   setTimeout(() => {
     document.querySelector(".notif__error").remove();
-  }, 2500);
+  }, 1500);
 }
 
 // handling state of url params
@@ -69,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //if local true open sidebar
   if (localStorage.getItem("open")) {
     sideMenu.style.display = "flex";
+    document.getElementById("cbox").checked = true;
   }
 
   // handling dynamic cards on open/close sidebar

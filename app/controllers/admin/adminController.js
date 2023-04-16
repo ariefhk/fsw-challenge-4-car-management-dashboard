@@ -2,43 +2,61 @@ const { Car } = require("../../models");
 
 exports.renderHome = async (req, res) => {
   try {
-    const msg = req.cookies;
+    const msg = req.cookies; //dapetin cookie
+    const msgSuccessSearch = req.searchMsg;
     const cars = req.car;
 
-    if (msg?.createMsg) {
-      res.clearCookie("createMsg");
-      res.render("index", {
+    if (msgSuccessSearch) {
+      return res.render("index", {
         cars,
-        saveMsg: msg.createMsg,
+        failSearchMsg: null,
+        searchMsg: msgSuccessSearch,
+        saveMsg: null,
         deleteMsg: null,
         errorMsg: null,
       });
-      return;
     }
+
     if (msg?.deleteMsg) {
       res.clearCookie("deleteMsg");
-      res.render("index", {
+      return res.render("index", {
         cars,
+        failSearchMsg: null,
+        searchMsg: null,
         saveMsg: null,
         deleteMsg: msg.deleteMsg,
         errorMsg: null,
       });
-      return;
+    }
+
+    if (msg?.createMsg) {
+      res.clearCookie("createMsg");
+      return res.render("index", {
+        cars,
+        failSearchMsg: null,
+        searchMsg: null,
+        saveMsg: msg.createMsg,
+        deleteMsg: null,
+        errorMsg: null,
+      });
     }
 
     if (msg?.errorMsg) {
       res.clearCookie("errorMsg");
-      res.render("index", {
+      return res.render("index", {
         cars,
+        failSearchMsg: null,
+        searchMsg: null,
         saveMsg: null,
         deleteMsg: null,
         errorMsg: msg.errorMsg,
       });
-      return;
     }
 
     res.render("index", {
       cars,
+      failSearchMsg: null,
+      searchMsg: null,
       saveMsg: null,
       deleteMsg: null,
       errorMsg: null,
@@ -54,14 +72,18 @@ exports.renderCreate = (req, res) => {
     const msg = req.cookies;
     if (msg?.errorMsg) {
       res.clearCookie("errorMsg");
-      res.render("pages/createCar", {
+      return res.render("pages/createCar", {
+        failSearchMsg: null,
+        searchMsg: null,
         saveMsg: null,
         deleteMsg: null,
         errorMsg: msg.errorMsg,
       });
-      return;
+      // return;
     }
-    res.render("pages/createCar", {
+    return res.render("pages/createCar", {
+      failSearchMsg: null,
+      searchMsg: null,
       saveMsg: null,
       deleteMsg: null,
       errorMsg: null,
@@ -78,16 +100,20 @@ exports.renderUpdate = (req, res) => {
     const msg = req.cookies;
     if (msg?.errorMsg) {
       res.clearCookie("errorMsg");
-      res.render("pages/updateCar", {
+      return res.render("pages/updateCar", {
         car,
+        failSearchMsg: null,
+        searchMsg: null,
         saveMsg: null,
         deleteMsg: null,
         errorMsg: msg.errorMsg,
       });
-      return;
+      // return;
     }
-    res.render("pages/updateCar", {
+    return res.render("pages/updateCar", {
       car,
+      failSearchMsg: null,
+      searchMsg: null,
       saveMsg: null,
       deleteMsg: null,
       errorMsg: null,
@@ -113,10 +139,10 @@ exports.adminCreateCar = async (req, res) => {
       ...uploadData,
     });
     res.cookie("createMsg", "Data Berhasil Disimpan");
-    res.redirect("/admin/cars");
+    res.redirect("/");
   } catch (error) {
     res.cookie("errorMsg", error.message);
-    res.redirect("/admin/cars");
+    res.redirect("/");
   }
 };
 
@@ -125,10 +151,10 @@ exports.adminDeleteCar = async (req, res) => {
     const car = req.car;
     await Car.destroy({ where: { id: car.id } });
     res.cookie("deleteMsg", "Data Berhasil Dihapus");
-    res.redirect("/admin/cars");
+    res.redirect("/");
   } catch (error) {
     res.cookie("errorMsg", error.message);
-    res.redirect("/admin/cars");
+    res.redirect("/");
   }
 };
 
@@ -151,7 +177,7 @@ exports.adminUpdateCar = async (req, res) => {
       { where: { id: car.id } }
     );
     res.cookie("createMsg", "Data Berhasil Diupdate");
-    res.redirect("/admin/cars");
+    res.redirect("/");
   } catch (error) {
     res.cookie("errorMsg", error.message);
     res.redirect("back");

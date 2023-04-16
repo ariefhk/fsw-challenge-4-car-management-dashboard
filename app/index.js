@@ -16,5 +16,9 @@ app.use(express.static(staticPublicPath));
 app.set("views", viewsPath);
 app.set("view engine", "ejs");
 app.use(router);
+//error 404
+app.use((req, res) => {
+  res.render("pages/notFound404");
+});
 
 module.exports = app;
