@@ -36,5 +36,8 @@
     "pg": "^8.10.0",
     "sequelize": "^6.31.0",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.1"
   }
 }
